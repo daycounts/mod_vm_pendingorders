@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="module" version="2.5" client="site" method="upgrade" >
+    <name>VirtueMart Pending Orders</name>
+	<licence>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</licence>
+	<author>Daycounts.com</author>
+	<authorEmail>info@daycounts.com</authorEmail>
+	<authorUrl>http://www.daycounts.com</authorUrl>
+	<creationDate>Aug. 2015</creationDate>
+    <copyright>Copyright (C) 2010 Daycounts.com. All Rights Reserved.</copyright>
+    <version>3.0.2</version>
+    <description>Shows customer's pending orders.</description>
+	<scriptfile>mod_vm_pendingorders.install.php</scriptfile>
+    <files>
+         <filename module="mod_vm_pendingorders">mod_vm_pendingorders.php</filename>
+         <filename>index.html</filename>
+		 <folder>assets</folder>
+		 <folder>elements</folder>
+		 <folder>language</folder>
+		 <folder>tmpl</folder>
+    </files>
+	<config>
+		<fields name="params" addfieldpath="/modules/mod_vm_pendingorders/elements">
+			<fieldset name="basic">
+				<field type="title" default="PLG_DAYCOUNTS_VERSION" />
+				<field type="versioncheck" name="mod_vm_pendingorders" modulename="mod_vm_pendingorders" versioncat="24" label="PLG_DAYCOUNTS_VERSION" />
+				<field type="versionhistory" name="versionhistory" versioncat="24" label="" description="" />
+
+				<field type="title" default="MOD_VMPO_OPTIONS" />
+				<field name="moduleclass_sfx" type="text" default="" label="Module Class Suffix" description="A suffix to be applied to the css class of the module (table.moduletable), this allows individual module styling" />
+				<field name="class_sfx" type="text" default="" label="Menu Class Suffix" description="A suffix to be applied to the css class of the menu items" />
+				<field name="filterorderstates" multiple="true" type="vmorderstates" default="P" label="MOD_VMPO_ORDERSTATES" description="MOD_VMPO_ORDERSTATES_DESC" />
+				<field name="showimg" type="radio" default="1" label="Show image" class="btn-group btn-group-yesno">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="showfinalize" type="radio" default="0" label="Show finalize form (You need the Finalize order plugin)" class="btn-group btn-group-yesno">
+					<option value="1">Yes</option>
+					<option value="0">No</option>
+				</field>
+				<field name="finalizeparams" type="text" default="" label="Finalize order extra params" description="Enter the plugin extra parameters separated by pipes (|) ex. text=Pay now|pretext=|divstyle=display: inline-block;" />
+				<field name="pretext" type="textarea" cols="30" rows="5" default="" label="Pre-text" />
+				<field name="posttext" type="textarea" cols="30" rows="5" label="Post-text" />
+			</fieldset>
+		</fields>
+	</config>
+	<updateservers>
+		<server type="extension" priority="1" name="VirtueMart Pending Orders module"><![CDATA[https://www.daycounts.com/index.php?option=com_versions&catid=24&task=updateserver.xml]]></server>
+	</updateservers>
+</extension>
